@@ -70,13 +70,12 @@ host_name = socket.gethostname()
 host_ip = socket.gethostbyname(host_name)
 ipaddress = IP_address()
 
-
 disp = ST7735.ST7735(
     port=0,
     cs=1,
     dc=9,
     backlight=12,
-    rotation=270,
+    rotation=90,
     spi_speed_hz=10000000
 )
 disp.begin()
@@ -86,8 +85,9 @@ HEIGHT = disp.height
 
 img = Image.new('RGB', (WIDTH, HEIGHT), color=(0, 0, 0))
 draw = ImageDraw.Draw(img)
-rect_colour = (0, 180, 180)
-draw.rectangle((0, 0, 160, 80), rect_colour)
+#rect_colour = (0, 180, 180)
+#draw.rectangle((0, 0, 160, 80), rect_colour)
+
 
 try:
     sgp30 = SGP30()
@@ -137,15 +137,17 @@ try:
         json_string = json.dumps(row) 
         print(json_string)
         time.sleep(0.5)
-        font_size = 20
+        font_size = 16
         font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
-        colour = (0, 0, 0)
-        disText = "VoC: {}".format(str(row['totalvocppb'])) 
-        disText2 = "Co2PPM: {}".format( str(row['equivalentco2ppm']))
-        draw.text((0, 0), disText, font=font, fill=colour)
-        #draw.text((0, 40), disText, font=font, fill=colour)
+        colour = (255, 255, 255)
+        disText = "VoC: " + str(row['totalvocppb'])
+        disText2 = "Co2PPM: "  +  str(row['equivalentco2ppm'])
+        draw.text((10, 10), disText, font=font, fill=colour)
+        draw.text((10, 40), disText2, font=font, fill=colour)
         disp.display(img)
-        time.sleep(0.5)
+        time.sleep(2)
+        img = Image.new('RGB', (WIDTH, HEIGHT), color=(0, 0, 0))
+        draw = ImageDraw.Draw(img)
 
 except KeyboardInterrupt:
     pass
