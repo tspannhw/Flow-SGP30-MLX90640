@@ -20,3 +20,18 @@ https://youtube.com/shorts/Bgd0jfXuoXQ?feature=share
 
 https://www.catscloudsanddata.com/cats
 
+
+### Talk
+
+** It's Getting Hot in Here!
+
+At last year's current event I monitored the temperature and other attributes at the conference. We'll do that as well and stream it through NiFi and Kafka. But, we'll scan anyone who wants to be thermal scanned during the talk live. I will bring a Raspberry Pi with a MLX90640 Thermal Camera that will capture thermal images of whoever wants, then sends the GIF to a local website (or IMGUR) for your download. I will generate a unique code along with some metadata that get's sent through Kafka and displayed on a real-time dashboard. Come and get your scan.
+
+Everyone looks cool in thermal pixels, you can be next. This talk can be 10 minutes, 45 minutes or put me in the corner somewhere and I'll run this for a an hour or two.
+
+#### Resources:
+
+* https://raw.githubusercontent.com/tspannhw/minifi-gasthermal/master/mlx90640-2020-01-05-20-52-14.gif
+* https://www.datainmotion.dev/2020/01/analyzing-wood-burning-stoves-with.html
+* https://www.datainmotion.dev/2020/01/cloudera-edge2ai-minifi-java-agent-with.html
+* https://www.datainmotion.dev/2019/03/posting-images-to-imgur-via-apache-nifi.html
