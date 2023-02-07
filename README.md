@@ -35,3 +35,4 @@ Everyone looks cool in thermal pixels, you can be next. This talk can be 10 minu
 * https://www.datainmotion.dev/2020/01/analyzing-wood-burning-stoves-with.html
 * https://www.datainmotion.dev/2020/01/cloudera-edge2ai-minifi-java-agent-with.html
 * https://www.datainmotion.dev/2019/03/posting-images-to-imgur-via-apache-nifi.html
+* https://www.datainmotion.dev/2019/03/posting-images-to-imgur-via-apache-nifi.html
