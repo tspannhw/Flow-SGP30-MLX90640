@@ -39,7 +39,8 @@ https://apidocs.imgur.com/
 
 ![img4](https://i.imgur.com/mHBeA0Z.gif)
 ![img3](https://i.imgur.com/qt8NEGe.gif)
-
+![img2](https://i.imgur.com/MIzf4kP.gif)
+![img1](https://i.imgur.com/TAQDvh8.gif)
 
 #### Resources:
 
