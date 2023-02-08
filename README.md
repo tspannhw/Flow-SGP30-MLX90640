@@ -93,6 +93,10 @@ https://apidocs.imgur.com/
 ![img11](https://i.imgur.com/jSBV4X3.gif)
 ![img12](https://i.imgur.com/SD10X2M.gif)
 ![img14](https://i.imgur.com/3hhQVP6.gif)
+![img15](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/mlx90640-2023-02-08-15-27-57.gif)
+![img16](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/mlx90640-2023-02-08-15-28-09.gif)
+![img17](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/mlx90640-2023-02-08-15-28-22.gif)
+
 
 #### Output NiFi Attributes
 
