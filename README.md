@@ -92,6 +92,7 @@ https://apidocs.imgur.com/
 ![img10](https://i.imgur.com/S6iipu5.gif)
 ![img11](https://i.imgur.com/jSBV4X3.gif)
 ![img12](https://i.imgur.com/SD10X2M.gif)
+![img14](https://i.imgur.com/3hhQVP6.gif)
 
 #### Output NiFi Attributes
 
