@@ -2,6 +2,8 @@
 
 Pimoroni Breakout Garden - SGP30 - MLX90650 - RP400 - NiFi - Kafka - Pulsar - Flink - Spark - Iceberg
 
+![diagram](https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/images/thermalimagepi.png)
+
 ### Hardware List
 
 * Pimoroni Breakout Garden for Raspberry Pi 400 
