@@ -35,12 +35,66 @@ Everyone looks cool in thermal pixels, you can be next. This talk can be 10 minu
 https://apidocs.imgur.com/
 
 
-#### Output
+#### Output Images
 
 ![img4](https://i.imgur.com/mHBeA0Z.gif)
 ![img3](https://i.imgur.com/qt8NEGe.gif)
 ![img2](https://i.imgur.com/MIzf4kP.gif)
 ![img1](https://i.imgur.com/TAQDvh8.gif)
+![img5](https://i.imgur.com/IEl9RKy.gif)
+![img6](https://i.imgur.com/mHlyKZ3.gif)
+![img7](https://i.imgur.com/40E2HgJ.gif)
+![img8](https://i.imgur.com/zMQSiLU.gif)
+![img9](https://i.imgur.com/jXE56Qd.gif)
+
+#### Output NiFi Attributes
+
+```
+
+Attribute Values
+QueryRecord.Route
+all
+file.group
+0
+file.lastModifiedTime
+2023-02-08T00:26:06+0000
+file.owner
+0
+file.permissions
+rw-r--r--
+file.size
+681219
+filename
+mlx90640-2023-02-07-19-26-05.gif
+link
+https://i.imgur.com/TAQDvh8.gif
+mime.type
+application/json
+path
+/opt/demo/images
+post.header
+{X-Cache=[MISS], Server=[cat factory 1.0], Access-Control-Allow-Origin=[*], Connection=[keep-alive], X-Ratelimit-Userlimit=[500], X-Post-Rate-Limit-Reset=[3130], X-Ratelimit-Clientreset=[86341], X-Ratelimit-Userreset=[3047], Date=[Wed, 08 Feb 2023 00:27:17 GMT], access-control-allow-methods=[GET, PUT, POST, PATCH, DELETE, OPTIONS], Access-Control-Allow-Headers=[Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, sessionCount, IMGURMWBETA, IMGURMWBETAOPTIN, X-xfer2, X-Imgur-Defender-Bypass], X-Timer=[S1675816036.117081,VS0,VE1344], Accept-Ranges=[bytes], X-Frame-Options=[DENY], X-Ratelimit-Userremaining=[496], X-Post-Rate-Limit-Remaining=[1246], X-Served-By=[cache-ewr18160-EWR], Access-Control-Allow-Credentials=[true], X-Ratelimit-Clientlimit=[12500], Vary=[Accept-Encoding], X-Post-Rate-Limit-Limit=[1250], X-Cache-Hits=[0], X-Ratelimit-Clientremaining=[12497], Content-Type=[application/json; charset=utf-8]}
+post.results
+{"data":{"in_most_viral":false,"ad_type":null,"link":"https://i.imgur.com/TAQDvh8.gif","description":null,"section":null,"title":null,"type":"image/gif","deletehash":"g","datetime":1675816037,"has_sound":false,"id":"TAQDvh8","in_gallery":false,"vote":null,"views":0,"height":320,"bandwidth":0,"is_ad":false,"nsfw":null,"ad_url":null,"hls":"","tags":[],"mp4":"","account_id":null,"size":156602,"account_url":null,"name":"","width":240,"animated":false,"favorite":false},"success":true,"status":200}
+post.status
+OK
+post.statuscode
+200
+record.count
+1
+sftp.listing.user
+tspann
+sftp.remote.filename
+/opt/demo/images/mlx90640-2023-02-07-19-26-05.gif
+sftp.remote.host
+192.168.1.84
+sftp.remote.port
+22
+uuid
+fb7866a8-a764-4070-b27f-3f6ff02c8eb6
+
+
+```
 
 #### Resources:
 
