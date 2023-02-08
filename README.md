@@ -49,3 +49,4 @@ https://apidocs.imgur.com/
 * https://www.datainmotion.dev/2020/01/cloudera-edge2ai-minifi-java-agent-with.html
 * https://www.datainmotion.dev/2019/03/posting-images-to-imgur-via-apache-nifi.html
 * [https://github.com/tspannhw/nifi-postimage-processor](https://github.com/tspannhw/nifi-postimage-processor)
+* [http://jsonpath.com/](http://jsonpath.com/)
