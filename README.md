@@ -142,3 +142,4 @@ fb7866a8-a764-4070-b27f-3f6ff02c8eb6
 * [https://github.com/tspannhw/nifi-postimage-processor](https://github.com/tspannhw/nifi-postimage-processor)
 * [http://jsonpath.com/](http://jsonpath.com/)
 * [https://www.catscloudsanddata.com/](https://www.catscloudsanddata.com/)
+* [https://github.com/pimoroni/st7735-python](https://github.com/pimoroni/st7735-python)
