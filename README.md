@@ -29,6 +29,16 @@ At last year's current event I monitored the temperature and other attributes at
 
 Everyone looks cool in thermal pixels, you can be next. This talk can be 10 minutes, 45 minutes or put me in the corner somewhere and I'll run this for a an hour or two.
 
+
+#### Upload to imgur
+
+https://apidocs.imgur.com/
+
+
+#### Output
+
+![img4](https://i.imgur.com/mHBeA0Z.gif)
+
 #### Resources:
 
 * https://raw.githubusercontent.com/tspannhw/minifi-gasthermal/master/mlx90640-2020-01-05-20-52-14.gif
