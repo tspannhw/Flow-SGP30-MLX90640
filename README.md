@@ -38,6 +38,8 @@ https://apidocs.imgur.com/
 #### Output
 
 ![img4](https://i.imgur.com/mHBeA0Z.gif)
+![img3](https://i.imgur.com/qt8NEGe.gif)
+
 
 #### Resources:
 
