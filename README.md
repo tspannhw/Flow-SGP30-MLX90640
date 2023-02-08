@@ -96,6 +96,19 @@ fb7866a8-a764-4070-b27f-3f6ff02c8eb6
 
 ```
 
+### ImgUr Post Results JSON Record
+
+```
+[{"filename":"mlx90640-2023-02-07-20-58-26.gif","file.lastModifiedTime":"2023-02-08T01:58:26+0000","link":"https://i.imgur.com/IEl9RKy.gif","uuid":"7af855a4-f482-45b1-ae00-42b464b24d46"}]
+
+```
+
+### Results All Attributes
+
+```
+{"flowfile.replay.timestamp":"Wed Feb 08 02:06:51 UTC 2023","postresults":"{\"data\":{\"in_most_viral\":false,\"ad_type\":null,\"link\":\"https://i.imgur.com/IEl9RKy.gif\",\"description\":null,\"section\":null,\"title\":null,\"type\":\"image/gif\",\"deletehash\":\"dhash\",\"datetime\":1675821563,\"has_sound\":false,\"id\":\"IEl9RKy\",\"in_gallery\":false,\"vote\":null,\"views\":0,\"height\":320,\"bandwidth\":0,\"is_ad\":false,\"nsfw\":null,\"ad_url\":null,\"hls\":\"\",\"tags\":[],\"mp4\":\"\",\"account_id\":null,\"size\":157816,\"account_url\":null,\"name\":\"\",\"width\":240,\"animated\":false,\"favorite\":false},\"success\":true,\"status\":200}","sftp.listing.user":"tspann","post.header":"{X-Cache=[MISS], Server=[cat factory 1.0], Access-Control-Allow-Origin=[*], Connection=[keep-alive], X-Ratelimit-Userlimit=[500], X-Post-Rate-Limit-Reset=[3538], X-Ratelimit-Clientreset=[80816], X-Ratelimit-Userreset=[3540], Date=[Wed, 08 Feb 2023 01:59:23 GMT], access-control-allow-methods=[GET, PUT, POST, PATCH, DELETE, OPTIONS], Access-Control-Allow-Headers=[Authorization, Content-Type, Accept, X-Mashape-Authorization, IMGURPLATFORM, IMGURUIDJAFO, sessionCount, IMGURMWBETA, IMGURMWBETAOPTIN, X-expD, X-Imgur-Defender-Bypass], X-Timer=[S1675821562.055686,VS0,VE1421], Accept-Ranges=[bytes], X-Frame-Options=[DENY], X-Ratelimit-Userremaining=[495], X-Post-Rate-Limit-Remaining=[1246], X-Served-By=[cache-nyc-kteb1890043-NYC], Access-Control-Allow-Credentials=[true], X-Ratelimit-Clientlimit=[12500], Vary=[Accept-Encoding], X-Post-Rate-Limit-Limit=[1250], X-Cache-Hits=[0], X-Ratelimit-Clientremaining=[12491], Content-Type=[application/json; charset=utf-8]}","file.group":"0","file.lastModifiedTime":"2023-02-08T01:58:26+0000","post.statuscode":"200","sftp.remote.filename":"/opt/demo/images/mlx90640-2023-02-07-20-58-26.gif","link":"https://i.imgur.com/IEl9RKy.gif","file.size":"671198","post.results":"{\"data\":{\"in_most_viral\":false,\"ad_type\":null,\"link\":\"https://i.imgur.com/IEl9RKy.gif\",\"description\":null,\"section\":null,\"title\":null,\"type\":\"image/gif\",\"deletehash\":\"DsQ0D65paRdWnVu\",\"datetime\":1675821563,\"has_sound\":false,\"id\":\"IEl9RKy\",\"in_gallery\":false,\"vote\":null,\"views\":0,\"height\":320,\"bandwidth\":0,\"is_ad\":false,\"nsfw\":null,\"ad_url\":null,\"hls\":\"\",\"tags\":[],\"mp4\":\"\",\"account_id\":null,\"size\":157816,\"account_url\":null,\"name\":\"\",\"width\":240,\"animated\":false,\"favorite\":false},\"success\":true,\"status\":200}","flowfile.replay":"true","file.permissions":"rw-r--r--","uuid":"6c0ea379-a548-45f8-9889-dcbf4ac7bb9a","path":"/opt/demo/images","filename":"mlx90640-2023-02-07-20-58-26.gif","post.status":"OK","file.owner":"0","sftp.remote.port":"22","sftp.remote.host":"192.168.1.84"}
+```
+
 #### Resources:
 
 * https://raw.githubusercontent.com/tspannhw/minifi-gasthermal/master/mlx90640-2020-01-05-20-52-14.gif
