@@ -31,13 +31,18 @@ Create an imgur account and a client id.
 
 [https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/flowfiles/MLX.json](https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/flowfiles/MLX.json)
 
+![1](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/nififlow1.jpg)
+
+![2](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/nififlow2.jpg)
 
 
+### Source Code
 
+Python 3 for generating sensors
+[https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/noscreen.py](https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/noscreen.py)
 
-### See
-
-https://www.catscloudsanddata.com/cats
+Python 3 code with screen
+[https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/rp400disp.py](https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/rp400disp.py)
 
 
 ### Talk
