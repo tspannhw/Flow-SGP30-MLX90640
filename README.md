@@ -11,7 +11,26 @@ Pimoroni Breakout Garden - SGP30 - MLX90650 - RP400 - NiFi - Kafka - Pulsar - Fl
 
 ```
 
+## See the Application Running
+
 https://youtube.com/shorts/Bgd0jfXuoXQ?feature=share
+
+![screen](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/2023-02-07_12-56-52_981.jpeg)
+![screen](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/2023-02-07_12-56-54_589.jpeg)
+![screen](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/2023-02-07_12-56-58_310.jpeg)
+![screen](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/2023-02-07_15-49-41_193.jpeg)
+![screen](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/2023-02-07_15-49-46_973.jpeg)
+
+## ImgUr Setup
+
+![imgur](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/imgurapi.jpg)
+
+Create an imgur account and a client id.
+
+## NiFi flow file
+
+[https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/flowfiles/MLX.json](https://github.com/tspannhw/Flow-SGP30-MLX90640/blob/main/flowfiles/MLX.json)
+
 
 
 
