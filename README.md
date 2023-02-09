@@ -54,6 +54,8 @@ Create an imgur account and a client id.
 
 ![2](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/nififlow2.jpg)
 
+![3](https://raw.githubusercontent.com/tspannhw/Flow-SGP30-MLX90640/main/images/consumekafkasensors.jpg)
+
 
 ### Source Code
 
