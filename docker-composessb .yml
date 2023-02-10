@@ -1,0 +1,221 @@
+################################################################################
+#
+# Copyright (c) 2019-2021 Cloudera, Inc. All rights reserved.
+#
+# This code is provided to you pursuant to your written agreement with Cloudera, which may be the terms of the
+# Affero General Public License version 3 (AGPLv3), or pursuant to a written agreement with a third party authorized
+# to distribute this code.  If you do not have a written agreement with Cloudera or with an authorized and
+# properly licensed third party, you do not have any rights to this code.
+#
+# If this code is provided to you under the terms of the AGPLv3:
+# (A) CLOUDERA PROVIDES THIS CODE TO YOU WITHOUT WARRANTIES OF ANY KIND;
+# (B) CLOUDERA DISCLAIMS ANY AND ALL EXPRESS AND IMPLIED WARRANTIES WITH RESPECT TO THIS CODE, INCLUDING BUT NOT
+# LIMITED TO IMPLIED WARRANTIES OF TITLE, NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE;
+# (C) CLOUDERA IS NOT LIABLE TO YOU, AND WILL NOT DEFEND, INDEMNIFY, OR HOLD YOU HARMLESS FOR ANY CLAIMS ARISING
+# FROM OR RELATED TO THE CODE; AND
+# (D) WITH RESPECT TO YOUR EXERCISE OF ANY RIGHTS GRANTED TO YOU FOR THE CODE, CLOUDERA IS NOT LIABLE FOR ANY
+# DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE OR CONSEQUENTIAL DAMAGES INCLUDING, BUT NOT LIMITED
+# TO, DAMAGES RELATED TO LOST REVENUE, LOST PROFITS, LOSS OF INCOME, LOSS OF BUSINESS ADVANTAGE OR
+# UNAVAILABILITY, OR LOSS OR CORRUPTION OF DATA.
+#
+################################################################################
+
+version: "2.1"
+services:
+  ssb-sse:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/ssb-sse:1.0.0.0
+    ports:
+      - "18121:18121"
+    networks:
+      - csp-ce-net
+    volumes:
+      - ssb-volume:/persistent
+    depends_on:
+      postgresql:
+        condition: service_started
+      kafka:
+        condition: service_healthy
+
+  ssb-mve:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/ssb-mve:1.0.0.0
+    ports:
+      - "18131:18131"
+    networks:
+      - csp-ce-net
+    restart: on-failure
+    depends_on:
+      ssb-sse:
+        condition: service_started
+
+  postgresql:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/postgresql:1.0.0.0
+    ports:
+      - "5432:5432"
+    networks:
+      - csp-ce-net
+    volumes:
+      - pg-volume:/var/lib/postgresql
+
+  zookeeper:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/zookeeper:1.0.0.0
+    ports:
+      - "2181:2181"
+    networks:
+      - csp-ce-net
+    volumes:
+      - zk-volume:/data
+    healthcheck:
+      test: bash -c '/usr/bin/test $$({ printf >&3 "ruok" && /usr/bin/cat <&3; } 3<>/dev/tcp/localhost/2181) == "imok"'
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: on-failure
+
+  kafka:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/kafka:1.0.0.0
+    ports:
+      - "9092:9092"
+      - "9094:9094"
+      - "24042:24042"
+      - "9100:9100"
+    networks:
+      - csp-ce-net
+    volumes:
+      - kf-volume:/data
+    environment:
+      KAFKA_LISTENERS: EXTERNAL_SAME_HOST://:29092,INTERNAL://:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL_SAME_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL_SAME_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 100
+    healthcheck:
+      test: [ "CMD", "kafka-topics.sh", "--list", "--bootstrap-server", "localhost:9092" ]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+    restart: on-failure
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+
+  kafka-connect:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/kafka-connect:1.0.0.0
+    ports:
+      - "28083:28083"
+      - "28086:28086"
+    networks:
+      - csp-ce-net
+    volumes:
+      - kfc-volume:/data
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "kafka-connect:28083/connectors" ]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+    depends_on:
+      kafka:
+        condition: service_healthy
+
+  prometheus:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/prometheus:1.0.0.0
+    ports:
+      - "9090:9090"
+    networks:
+      - csp-ce-net
+    volumes:
+      - prom-volume:/persistent
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "prometheus:9090/api/v1/targets?state=active" ]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+    restart: on-failure
+    depends_on:
+      kafka-connect:
+        condition: service_healthy
+
+  schema-registry:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/schema-registry:1.0.0.0
+    ports:
+      - "7788:7788"
+    networks:
+      - csp-ce-net
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "schema-registry:7788/api/v1/schemaregistry/schemas" ]
+      interval: 5s
+      timeout: 10s
+      retries: 50
+    restart: on-failure
+    volumes:
+      - sr-volume:/tmp/registry/local-jars
+    depends_on:
+      postgresql:
+        condition: service_started
+      kafka-connect:
+        condition: service_healthy
+
+  smm:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/smm:1.0.0.0
+    ports:
+      - "8585:8585"
+      - "9991:9991"
+    networks:
+      - csp-ce-net
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "smm-rest:8585/api/v2/admin/metrics/aggregated/topics?duration=LAST_THIRTY_MINUTES&state=all" ]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+    restart: on-failure
+    depends_on:
+      postgresql:
+        condition: service_started
+      prometheus:
+        condition: service_healthy
+      schema-registry:
+        condition: service_healthy
+      kafka-connect:
+        condition: service_healthy
+
+  flink-jobmanager:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/flink:1.0.0.0
+    ports:
+      - "8081:8081"
+    entrypoint: /usr/bin/init-flink jobmanager
+    networks:
+      - csp-ce-net
+    volumes:
+      - flink-volume:/persistent
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "localhost:8081" ]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+
+  flink-taskmanager:
+    image: docker.repository.cloudera.com/cloudera/csp-ce/flink:1.0.0.0
+    entrypoint: /usr/bin/init-flink taskmanager
+    networks:
+      - csp-ce-net
+    volumes:
+      - flink-volume:/persistent
+    depends_on:
+      flink-jobmanager:
+        condition: service_healthy
+
+networks:
+  csp-ce-net:
+    driver: bridge
+
+volumes:
+  ssb-volume:
+  flink-volume:
+  pg-volume:
+  zk-volume:
+  kf-volume:
+  kfc-volume:
+  prom-volume:
+  sr-volume:
