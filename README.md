@@ -30,6 +30,44 @@ Pimoroni Breakout Garden - SGP30 - MLX90650 - RP400 - NiFi - Kafka - Pulsar - Fl
 
 ```
 
+### Flink
+
+```
+CREATE TABLE `ssb`.`Meetups`.`rp400sgp30` (
+  `uuid` VARCHAR(2147483647),
+  `rowid` VARCHAR(2147483647),
+  `systemtime` VARCHAR(2147483647),
+  `cpu` DOUBLE,
+  `memory` DOUBLE,
+  `ipaddress` VARCHAR(2147483647),
+  `macaddress` VARCHAR(2147483647),
+  `endtime` VARCHAR(2147483647),
+  `runtime` BIGINT,
+  `ts` BIGINT,
+  `starttime` VARCHAR(2147483647),
+  `diskusage` VARCHAR(2147483647),
+  `te` VARCHAR(2147483647),
+  `equivalentco2ppm` DOUBLE,
+  `totalvocppb` DOUBLE,
+  `host` VARCHAR(2147483647),
+  `hostname` VARCHAR(2147483647),
+  `eventTimestamp` TIMESTAMP(3) WITH LOCAL TIME ZONE METADATA FROM 'timestamp',
+  WATERMARK FOR `eventTimestamp` AS `eventTimestamp` - INTERVAL '3' SECOND
+) WITH (
+  'deserialization.failure.policy' = 'ignore_and_log',
+  'properties.request.timeout.ms' = '120000',
+  'format' = 'json',
+  'properties.bootstrap.servers' = 'kafka:9092',
+  'connector' = 'kafka',
+  'properties.transaction.timeout.ms' = '900000',
+  'topic' = 'rpi400sensor',
+  'scan.startup.mode' = 'group-offsets',
+  'properties.auto.offset.reset' = 'earliest',
+  'properties.group.id' = 'rp400sgp301'
+)
+
+```
+
 ## See the Application Running
 
 https://youtube.com/shorts/Bgd0jfXuoXQ?feature=share
